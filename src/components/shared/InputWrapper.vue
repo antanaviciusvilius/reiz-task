@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import SearchIcon from '@/components/icons/SearchIcon.vue';
-
+import type { StyleValue } from 'vue';
 export interface InputWrapperProps {
-  placeholder: string;
+  placeholder?: string;
+  styles?: StyleValue;
 }
 
 const props = defineProps<InputWrapperProps>();
@@ -10,8 +10,8 @@ const props = defineProps<InputWrapperProps>();
 
 <template>
   <div class="input-container">
-    <SearchIcon class="search-icon"/>
-    <input :placeholder="props.placeholder" class="input"/>
+    <slot></slot>
+    <input :placeholder="props.placeholder" class="input" :style="props.styles"/>
   </div>
 </template>
 
@@ -26,8 +26,8 @@ const props = defineProps<InputWrapperProps>();
     gap: 16px;
   }
 
-  .search-icon, input, input::placeholder {
-    color: #ADA7A7;
+  .input, input::placeholder {
+    color: var(--placeholder-color, #ADA7A7);
   }
 
   .input {

@@ -34,5 +34,9 @@ import SidebarComponent from '@/components/features/Sidebar/SidebarComponent.vue
     display: grid;
     grid-template-rows: 152px 1fr;
   }
+
+  .router-wrapper {
+    padding-inline: 40px;
+  }
 }
 </style>
