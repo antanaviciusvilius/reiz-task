@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HeaderComponent from '@/components/features/HeaderComponent.vue';
+import HeaderComponent from '@/components/features/Header/HeaderComponent.vue';
 import SidebarComponent from '@/components/features/Sidebar/SidebarComponent.vue';
 </script>
 

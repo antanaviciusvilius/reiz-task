@@ -48,7 +48,6 @@ const props = defineProps<SidebarNavigationItemProps>();
   }
 
   .sidebar-nav-item-label {
-    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
