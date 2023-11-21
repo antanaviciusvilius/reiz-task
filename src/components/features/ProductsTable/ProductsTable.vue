@@ -51,7 +51,7 @@ const props = defineProps<ProductsTableProps>();
       </DataTableRow>
       <tbody class="table-body">
         <DataTableRow v-for="product in props.products" :key="product.title">
-          <DataTableCell :styles="{ padding: '5px' }">
+          <DataTableCell>
             <CustomCheckbox />
           </DataTableCell>
           <DataTableCell cell-data="Title">
@@ -78,6 +78,13 @@ const props = defineProps<ProductsTableProps>();
 .body-cell {
   font-weight: 400;
   opacity: 0.65;
+}
+
+.table-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--container-background-color);
+  z-index: 2;
 }
 
 .table-body {

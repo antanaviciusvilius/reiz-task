@@ -86,6 +86,7 @@ const handleClearSort = () => {
 .sort-options {
   display: flex;
   gap: 22px;
+  flex-wrap: wrap;
 }
 
 .sort-option-btn {

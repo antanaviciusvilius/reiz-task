@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<DataTableCellProps>(), {
 
 <style scoped lang="scss">
 .data-table-cell {
-  padding: 5px;
+  padding: 10px;
   font-weight: 500;
   line-height: normal;
   text-align: left;
