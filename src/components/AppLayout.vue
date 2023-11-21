@@ -35,7 +35,7 @@ import SidebarComponent from '@/components/features/Sidebar/SidebarComponent.vue
 
 .content {
   display: grid;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows: 80px calc(100vh - 80px);
   grid-column: 2/2;
 }
 
@@ -56,7 +56,7 @@ import SidebarComponent from '@/components/features/Sidebar/SidebarComponent.vue
   }
 
   .content {
-    grid-template-rows: 152px 1fr;
+    grid-template-rows: 152px calc(100vh - 152px);
   }
 
   .router-wrapper {

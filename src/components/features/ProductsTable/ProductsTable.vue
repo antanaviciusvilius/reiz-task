@@ -4,14 +4,6 @@ import DataTable from '@/components/shared/DataTable/DataTable.vue';
 import DataTableCell from '@/components/shared/DataTable/DataTableCell.vue';
 import DataTableRow from '@/components/shared/DataTable/DataTableRow.vue';
 import type { Product } from '@/types/Product.ts';
-const products: Product[] = Array(10).fill({
-  title: 'iPhone 9',
-  category: 'smartphones',
-  brand: 'Samsung',
-  price: '$100',
-  stock: '50',
-  rating: '$000'
-})
 
 export interface Row {
   title: string
@@ -39,6 +31,12 @@ const rows: Row[] = [
     prop: 'rating'
   }
 ]
+
+export interface ProductsTableProps {
+  products: Product[];
+}
+
+const props = defineProps<ProductsTableProps>();
 </script>
 
 <template>
@@ -52,7 +50,7 @@ const rows: Row[] = [
         }}</DataTableCell>
       </DataTableRow>
       <tbody class="table-body">
-        <DataTableRow v-for="product in products" :key="product.title">
+        <DataTableRow v-for="product in props.products" :key="product.title">
           <DataTableCell :styles="{padding: '5px'}">
             <CustomCheckbox />
           </DataTableCell>
@@ -75,6 +73,7 @@ const rows: Row[] = [
   flex-direction: column;
   overflow-x: auto;
   margin-top: 34px;
+  max-width: calc(100vw - 20px);
 }
 .body-cell {
   font-weight: 400;
@@ -82,10 +81,7 @@ const rows: Row[] = [
 }
 
 .table-body {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
+  display: table-row-group;
 }
 
 .link {
@@ -94,8 +90,14 @@ const rows: Row[] = [
 }
 
 @include md {
-  .table-body {
-    display: table-row-group;
+  .products-table-container {
+    max-width: calc(100vw - var(--sidebar-md-width) - 80px);
+  }
+}
+
+@include lg {
+  .products-table-container {
+    max-width: calc(100vw - var(--sidebar-lg-width) - 80px);
   }
 }
 </style>

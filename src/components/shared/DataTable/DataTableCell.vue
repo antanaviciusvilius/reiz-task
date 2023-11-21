@@ -29,31 +29,24 @@ const props = withDefaults(defineProps<DataTableCellProps>(), {
   line-height: normal;
   text-align: left;
 }
-th {
-  display: none;
-}
+// th {
+//   display: none;
+// }
 
 td {
-  display: grid;
-  grid-template-columns: 15ch auto;
+  // display: grid;
+  // grid-template-columns: 15ch auto;
 
-  &::before {
-    content: attr(data-cell);
-    font-weight: 700;
-    text-transform: capitalize;
-  }
+  // &::before {
+  //   content: attr(data-cell);
+  //   font-weight: 700;
+  //   text-transform: capitalize;
+  // }
 }
 
 @include md {
   .data-table-cell {
     padding: 16px;
-  }
-  th, td {
-    display: table-cell;
-  }
-
-  td::before {
-    display: none;
   }
 }
 
