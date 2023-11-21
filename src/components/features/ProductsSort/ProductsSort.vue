@@ -56,7 +56,10 @@ const handleClearSort = () => {
         v-for="sortOption in sortOptions"
         :key="sortOption.title"
         class="sort-option-btn"
-        v-bind:class="{ active: sortValue?.property === sortOption.property && sortValue.order === sortOption.order }"
+        v-bind:class="{
+          active: sortValue?.property === sortOption.property
+            && sortValue.order === sortOption.order,
+        }"
         @click="handleSortClick(sortOption)"
         type="button"
       >

@@ -12,6 +12,7 @@ const fetchProduct = async () => {
   try {
     product.value = await getProductById(route.params.id);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Failed to fetch products data:', error);
   }
 };
@@ -25,7 +26,7 @@ onMounted(() => {
   <main class="product-view">
     <PageTitle>
       Selected Product
-      <button @click="() => router.push('/')">Go back</button>
+      <button @click="() => router.push('/')" type="button">Go back</button>
     </PageTitle>
     <pre>
       {{ product }}

@@ -3,7 +3,7 @@ import CustomCheckbox from '@/components/shared/CustomCheckbox.vue';
 import DataTable from '@/components/shared/DataTable/DataTable.vue';
 import DataTableCell from '@/components/shared/DataTable/DataTableCell.vue';
 import DataTableRow from '@/components/shared/DataTable/DataTableRow.vue';
-import type { Product } from '@/types/Product.ts';
+import type { Product } from '@/types/Product';
 
 export interface Row {
   title: string

@@ -17,6 +17,7 @@ const searchProducts = async (title?: string) => {
   try {
     products.value = await getProducts(title);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Failed to fetch products data:', error);
   }
 };
@@ -33,7 +34,6 @@ watch(
     }
 
     filteredProducts.value = filterByBrand(products.value, brand);
-    console.log(filteredProducts.value);
 
     if (!sort || !sort.property || !sort.order) {
       sortedProducts.value = [...filteredProducts.value];
