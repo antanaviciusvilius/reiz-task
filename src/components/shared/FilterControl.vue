@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import InputWrapper from '@/components/shared/InputWrapper.vue';
+import FilterTitle from './FilterTitle.vue';
 
 export interface FilterControlProps {
   title: string;
@@ -14,9 +15,9 @@ defineEmits(['update:value'])
 
 <template>
   <div class="filter-control-container">
-    <div class="filter-control-title">
+    <FilterTitle>
       {{props.title}}
-    </div>
+    </FilterTitle>
     <InputWrapper 
       :placeholder="props.placeholder" 
       :styles="{'--placeholder-color': '#13131399'}" 
@@ -31,10 +32,5 @@ defineEmits(['update:value'])
   display: flex;
   flex-direction: column;
   gap: 16px;
-
-  .filter-control-title {
-    color: #000;
-    font-weight: 400;
-  }
 }
 </style>
