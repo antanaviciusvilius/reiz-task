@@ -11,7 +11,7 @@ const props = defineProps<InputWrapperProps>();
 <template>
   <div class="input-container">
     <slot></slot>
-    <input :placeholder="props.placeholder" class="input" :style="props.styles"/>
+    <input :placeholder="props.placeholder" class="input" :style="props.styles" name="input" />
   </div>
 </template>
 
@@ -27,13 +27,14 @@ const props = defineProps<InputWrapperProps>();
   }
 
   .input, input::placeholder {
-    color: var(--placeholder-color, #ADA7A7);
+    color: var(--placeholder-color, var(--grey-color));
   }
 
   .input {
     border: none;
     outline: none;
     flex: 1;
+    width: 100%;
 
     &, &::placeholder {
       font-family: Poppins;

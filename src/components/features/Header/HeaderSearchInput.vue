@@ -11,6 +11,6 @@ import InputWrapper from '@/components/shared/InputWrapper.vue';
 
 <style scoped lang="scss">
 .search-icon {
-  color: #ADA7A7;
+  color: var(--grey-color);
 }
 </style>

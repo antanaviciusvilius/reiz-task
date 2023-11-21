@@ -21,7 +21,7 @@ const props = defineProps<HeaderActionProps>();
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .header-action-container {
   display: flex;
   background-color: white;
@@ -32,13 +32,16 @@ const props = defineProps<HeaderActionProps>();
   cursor: pointer;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    box-shadow: 1px 1px 2px 0 var(--grey-color);
+  }
 }
 
 .bubble-indicator {
   display: block;
   width: 10px;
   height: 10px;
-  background-color: #FFBC0F;
   border-radius: 50%;
   position: absolute;
   right: -4px;
@@ -47,6 +50,6 @@ const props = defineProps<HeaderActionProps>();
 
 .icon {
   display: flex;
-  color: #ADA7A7;
+  color: var(--grey-color);
 }
 </style>

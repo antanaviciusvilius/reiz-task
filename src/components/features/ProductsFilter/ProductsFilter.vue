@@ -4,8 +4,8 @@ import FilterControl from '../../shared/FilterControl.vue';
 
 <template>
   <section class="products-filter-container">
-    <FilterControl title="Title" placeholder="Enter Title"/>
-    <FilterControl title="Brand" placeholder="Enter Brand"/>
+    <FilterControl title="Title" placeholder="Enter Title" />
+    <FilterControl title="Brand" placeholder="Enter Brand" />
   </section>
 </template>
 
@@ -13,5 +13,11 @@ import FilterControl from '../../shared/FilterControl.vue';
 .products-filter-container {
   display: flex;
   gap: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include md {
+    justify-content: unset;
+  }
 }
 </style>
