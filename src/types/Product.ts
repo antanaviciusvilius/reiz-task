@@ -6,6 +6,7 @@ export interface ProductsResponse {
 }
 
 export interface Product {
+  id: number;
   title: string;
   category: string;
   brand: string;
