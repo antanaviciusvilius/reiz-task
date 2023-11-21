@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import type { StyleValue } from 'vue';
+
 export interface InputWrapperProps {
   placeholder?: string;
   styles?: StyleValue;
   value?: string;
 }
 
-defineProps<InputWrapperProps>()
-defineEmits(['update:value'])
+defineProps<InputWrapperProps>();
+defineEmits(['update:value']);
 </script>
 
 <template>
   <div class="input-container">
-    <slot></slot>
+    <slot />
     <input
       class="input"
       name="input"

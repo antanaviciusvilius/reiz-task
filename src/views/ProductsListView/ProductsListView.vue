@@ -1,49 +1,49 @@
 <script setup lang="ts">
-import ProductsFilter from '@/components/features/ProductsFilter/ProductsFilter.vue'
-import ProductsSort, { type SortOption } from '@/components/features/ProductsSort/ProductsSort.vue'
-import ProductsTable from '@/components/features/ProductsTable/ProductsTable.vue'
-import PageTitle from '@/components/shared/PageTitle.vue'
-import filterByBrand from '@/helpers/filterByBrand'
-import getProducts from '@/helpers/getProducts'
-import sortHelper from '@/helpers/sortHelper'
-import type { Product } from '@/types/Product'
-import { ref, watch } from 'vue'
+import ProductsFilter from '@/components/features/ProductsFilter/ProductsFilter.vue';
+import ProductsSort, { type SortOption } from '@/components/features/ProductsSort/ProductsSort.vue';
+import ProductsTable from '@/components/features/ProductsTable/ProductsTable.vue';
+import PageTitle from '@/components/shared/PageTitle.vue';
+import filterByBrand from '@/helpers/filterByBrand';
+import getProducts from '@/helpers/getProducts';
+import sortHelper from '@/helpers/sortHelper';
+import type { Product } from '@/types/Product';
+import { ref, watch } from 'vue';
 
-const products = ref<Product[]>([])
-const filteredProducts = ref<Product[]>([])
-const sortedProducts = ref<Product[]>([])
+const products = ref<Product[]>([]);
+const filteredProducts = ref<Product[]>([]);
+const sortedProducts = ref<Product[]>([]);
 
 const searchProducts = async (title?: string) => {
   try {
-    products.value = await getProducts(title)
+    products.value = await getProducts(title);
   } catch (error) {
-    console.error('Failed to fetch products data:', error)
+    console.error('Failed to fetch products data:', error);
   }
-}
+};
 
-const titleFilter = ref('')
-const brandFilter = ref('')
-const sortBy = ref<SortOption>()
+const titleFilter = ref('');
+const brandFilter = ref('');
+const sortBy = ref<SortOption>();
 
 watch(
   [titleFilter, brandFilter, sortBy],
   async ([title, brand, sort], [oldTitle]) => {
     if (title !== oldTitle) {
-      await searchProducts(title)
+      await searchProducts(title);
     }
 
-    filteredProducts.value = filterByBrand(products.value, brand)
+    filteredProducts.value = filterByBrand(products.value, brand);
     console.log(filteredProducts.value);
 
     if (!sort || !sort.property || !sort.order) {
-      sortedProducts.value = [...filteredProducts.value]
-      return
+      sortedProducts.value = [...filteredProducts.value];
+      return;
     }
 
-    sortedProducts.value = sortHelper(filteredProducts.value, sort.property, sort.order)
+    sortedProducts.value = sortHelper(filteredProducts.value, sort.property, sort.order);
   },
-  { immediate: true }
-)
+  { immediate: true },
+);
 </script>
 
 <template>

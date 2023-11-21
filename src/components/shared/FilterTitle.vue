@@ -1,6 +1,6 @@
 <template>
   <div class="filter-control-title">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

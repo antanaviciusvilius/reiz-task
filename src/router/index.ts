@@ -8,14 +8,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'productsList',
-      component: ProductsListView
+      component: ProductsListView,
     },
     {
       path: '/product/:id',
       name: 'product',
-      component: ProductView
-    }
-  ]
-})
+      component: ProductView,
+    },
+  ],
+});
 
-export default router
+export default router;

@@ -13,7 +13,7 @@ import SidebarComponent from '@/components/features/Sidebar/SidebarComponent.vue
         <HeaderComponent />
       </div>
       <div class="router-wrapper">
-        <slot></slot>
+        <slot />
       </div>
     </section>
   </main>

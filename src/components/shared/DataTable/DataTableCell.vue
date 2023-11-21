@@ -8,17 +8,17 @@ export interface DataTableCellProps {
 }
 
 const props = withDefaults(defineProps<DataTableCellProps>(), {
-  cellElement: 'td'
+  cellElement: 'td',
 });
 </script>
 
 <template>
   <th v-if="props.cellElement === 'th'" class="data-table-cell">
-    <slot></slot>
+    <slot />
   </th>
 
   <td v-if="props.cellElement === 'td'" class="data-table-cell" :data-cell="props.cellData || ''">
-    <slot></slot>
+    <slot />
   </td>
 </template>
 

@@ -3,7 +3,7 @@
 
 <template>
   <table class="data-table-container">
-    <slot></slot>
+    <slot />
   </table>
 </template>
 

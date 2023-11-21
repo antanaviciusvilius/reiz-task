@@ -9,7 +9,7 @@ export interface FilterControlProps {
 }
 
 const props = defineProps<FilterControlProps>();
-defineEmits(['update:value'])
+defineEmits(['update:value']);
 
 </script>
 
@@ -18,9 +18,9 @@ defineEmits(['update:value'])
     <FilterTitle>
       {{props.title}}
     </FilterTitle>
-    <InputWrapper 
-      :placeholder="props.placeholder" 
-      :styles="{'--placeholder-color': '#13131399'}" 
+    <InputWrapper
+      :placeholder="props.placeholder"
+      :styles="{ '--placeholder-color': '#13131399' }"
       :value="value"
       @update:value="(val) => $emit('update:value', val)"
     />

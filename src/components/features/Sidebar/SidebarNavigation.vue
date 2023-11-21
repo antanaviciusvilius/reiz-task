@@ -13,39 +13,39 @@ const navItems: SidebarNavigationItemProps[] = [
   {
     icon: DashboardIcon,
     title: 'Dashboard',
-    isActive: true
+    isActive: true,
   },
   {
     icon: ClipboardTickIcon,
     title: 'Lab Test',
-    isActive: false
+    isActive: false,
   },
   {
     icon: CalendarTickIcon,
     title: 'Appointment',
-    isActive: false
+    isActive: false,
   },
   {
     icon: BagTickIcon,
     title: 'Medicine Order',
-    isActive: false
+    isActive: false,
   },
   {
     icon: SMSIcon,
     title: 'Message',
-    isActive: false
+    isActive: false,
   },
   {
     icon: EmptyWalletIcon,
     title: 'Payment',
-    isActive: false
+    isActive: false,
   },
   {
     icon: SettingIcon,
     title: 'Settings',
-    isActive: false
-  }
-]
+    isActive: false,
+  },
+];
 </script>
 
 <template>

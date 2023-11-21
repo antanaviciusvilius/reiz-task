@@ -7,7 +7,7 @@ export interface SidebarNavigationItemProps {
   isActive: boolean
 }
 
-const props = defineProps<SidebarNavigationItemProps>()
+const props = defineProps<SidebarNavigationItemProps>();
 </script>
 
 <template>
