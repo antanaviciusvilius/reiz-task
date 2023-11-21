@@ -2,7 +2,7 @@
 
 <template>
   <tr class="data-table-row">
-    <slot></slot>
+    <slot />
   </tr>
 </template>
 

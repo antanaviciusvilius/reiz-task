@@ -40,30 +40,35 @@ const sortOptions: SortOption[] = [
 ];
 
 const handleSortClick = (sortOption: SortOption) => {
-  emit("update:sortValue", sortOption);
-}
+  emit('update:sortValue', sortOption);
+};
 
 const handleClearSort = () => {
-  emit("update:sortValue", null);
-}
+  emit('update:sortValue', null);
+};
 </script>
 
 <template>
   <section class="products-sort-container">
     <FilterTitle>Sort By</FilterTitle>
     <div class="sort-options">
-      <button 
-        v-for="sortOption in sortOptions" 
-        :key="sortOption.title" 
+      <button
+        v-for="sortOption in sortOptions"
+        :key="sortOption.title"
         class="sort-option-btn"
-        v-bind:class="{'active': sortValue?.property === sortOption.property && sortValue.order === sortOption.order}"
+        v-bind:class="{
+          active: sortValue?.property === sortOption.property
+            && sortValue.order === sortOption.order,
+        }"
         @click="handleSortClick(sortOption)"
+        type="button"
       >
         {{ sortOption.title }}
       </button>
-      <button 
+      <button
         class="sort-option-btn"
         @click="handleClearSort()"
+        type="button"
       >
         Clear sort
       </button>

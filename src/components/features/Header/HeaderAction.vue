@@ -13,11 +13,11 @@ const props = defineProps<HeaderActionProps>();
 
 <template>
   <div class="header-action-container" :style="props.styles">
-    <div class="bubble-indicator" v-if="props.showIndicator" :style="{backgroundColor: props.indicatorColor || '#FFBC0F'}"></div>
+    <div class="bubble-indicator" v-if="props.showIndicator" :style="{ backgroundColor: props.indicatorColor || '#FFBC0F' }" />
     <div class="icon" v-if="props.icon">
       <component :is="props.icon" />
     </div>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

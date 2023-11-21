@@ -1,31 +1,32 @@
 <script setup lang="ts">
 import PageTitle from '@/components/shared/PageTitle.vue';
-import { useRoute, useRouter } from 'vue-router'
-import { ref, onMounted } from 'vue'
-import getProductById from '@/helpers/getProductById'
+import { useRoute, useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import getProductById from '@/helpers/getProductById';
 
-const product = ref<Product>()
-const route = useRoute()
-const router = useRouter()
+const product = ref<Product>();
+const route = useRoute();
+const router = useRouter();
 
 const fetchProduct = async () => {
   try {
-    product.value = await getProductById(route.params.id)
+    product.value = await getProductById(route.params.id);
   } catch (error) {
-    console.error('Failed to fetch products data:', error)
+    // eslint-disable-next-line no-console
+    console.error('Failed to fetch products data:', error);
   }
-}
+};
 
 onMounted(() => {
-  fetchProduct()
-})
+  fetchProduct();
+});
 </script>
 
 <template>
   <main class="product-view">
     <PageTitle>
       Selected Product
-      <button @click="() => router.push('/')">Go back</button>
+      <button @click="() => router.push('/')" type="button">Go back</button>
     </PageTitle>
     <pre>
       {{ product }}

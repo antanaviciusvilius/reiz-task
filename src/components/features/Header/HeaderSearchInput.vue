@@ -5,7 +5,7 @@ import InputWrapper from '@/components/shared/InputWrapper.vue';
 
 <template>
   <InputWrapper>
-    <SearchIcon class="search-icon" placeholder="Search"/>
+    <SearchIcon class="search-icon" placeholder="Search" />
   </InputWrapper>
 </template>
 

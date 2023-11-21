@@ -6,20 +6,20 @@ export interface ProductsFilterProps {
   brandValue: string;
 }
 
-defineProps<ProductsFilterProps>()
-defineEmits(['update:titleValue', 'update:brandValue'])
+defineProps<ProductsFilterProps>();
+defineEmits(['update:titleValue', 'update:brandValue']);
 </script>
 
 <template>
   <section class="products-filter-container">
     <FilterControl
-      title="Title" 
+      title="Title"
       placeholder="Enter Title"
       :value="titleValue"
       @update:value="(title) => $emit('update:titleValue', title)"
     />
     <FilterControl
-      title="Brand" 
+      title="Brand"
       placeholder="Enter Brand"
       :value="brandValue"
       @update:value="(brand) => $emit('update:brandValue', brand)"

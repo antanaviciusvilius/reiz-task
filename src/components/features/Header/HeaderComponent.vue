@@ -11,7 +11,7 @@ import HeaderSearchInput from './HeaderSearchInput.vue';
     <div class="header-actions">
       <HeaderAction :icon="NotificationBingIcon" show-indicator />
       <HeaderAction :styles="{ borderRadius: '10px' }">
-        <img :src="userPic" />
+        <img :src="userPic" alt="user picture" />
       </HeaderAction>
     </div>
   </div>

@@ -3,7 +3,7 @@
 <template>
   <label class="checkbox-container">
     <input type="checkbox" name="checkbox" />
-    <span class="checkmark"></span>
+    <span class="checkmark" />
   </label>
 </template>
 

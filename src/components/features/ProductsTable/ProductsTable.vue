@@ -3,7 +3,7 @@ import CustomCheckbox from '@/components/shared/CustomCheckbox.vue';
 import DataTable from '@/components/shared/DataTable/DataTable.vue';
 import DataTableCell from '@/components/shared/DataTable/DataTableCell.vue';
 import DataTableRow from '@/components/shared/DataTable/DataTableRow.vue';
-import type { Product } from '@/types/Product.ts';
+import type { Product } from '@/types/Product';
 
 export interface Row {
   title: string
@@ -12,25 +12,25 @@ export interface Row {
 const rows: Row[] = [
   {
     title: 'Category',
-    prop: 'category'
+    prop: 'category',
   },
   {
     title: 'Brand',
-    prop: 'brand'
+    prop: 'brand',
   },
   {
     title: 'Price',
-    prop: 'price'
+    prop: 'price',
   },
   {
     title: 'Stock',
-    prop: 'stock'
+    prop: 'stock',
   },
   {
     title: 'Rating',
-    prop: 'rating'
-  }
-]
+    prop: 'rating',
+  },
+];
 
 export interface ProductsTableProps {
   products: Product[];
@@ -51,11 +51,11 @@ const props = defineProps<ProductsTableProps>();
       </DataTableRow>
       <tbody class="table-body">
         <DataTableRow v-for="product in props.products" :key="product.title">
-          <DataTableCell :styles="{padding: '5px'}">
+          <DataTableCell :styles="{ padding: '5px' }">
             <CustomCheckbox />
           </DataTableCell>
           <DataTableCell cell-data="Title">
-            <router-link :to="{ name: 'product', params: { id: product.id }}" class="link">{{ product.title }}</router-link>
+            <router-link :to="{ name: 'product', params: { id: product.id } }" class="link">{{ product.title }}</router-link>
           </DataTableCell>
           <DataTableCell v-for="row in rows" :key="row.title" :cell-data="row.title">
             <span class="body-cell">{{ product[row.prop] }}</span>

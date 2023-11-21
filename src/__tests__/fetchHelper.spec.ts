@@ -2,7 +2,7 @@ import fetchHelper, { type FetchRequestOptions } from '@/helpers/fetchHelper';
 import { expect, test } from 'vitest';
 
 // Mock fetch function
-global.fetch = async (url, _) => {
+global.fetch = async (url) => {
   if (url === 'https://example.com/success') {
     return {
       ok: true,

@@ -1,24 +1,23 @@
 <script setup lang="ts">
-import type { StyleValue } from 'vue';
 
 export interface DataTableCellProps {
   cellElement?: 'th' | 'td'
   cellData?: string;
-  styles?: StyleValue;
 }
 
 const props = withDefaults(defineProps<DataTableCellProps>(), {
-  cellElement: 'td'
+  cellElement: 'td',
+  cellData: '',
 });
 </script>
 
 <template>
   <th v-if="props.cellElement === 'th'" class="data-table-cell">
-    <slot></slot>
+    <slot />
   </th>
 
   <td v-if="props.cellElement === 'td'" class="data-table-cell" :data-cell="props.cellData || ''">
-    <slot></slot>
+    <slot />
   </td>
 </template>
 
@@ -28,20 +27,6 @@ const props = withDefaults(defineProps<DataTableCellProps>(), {
   font-weight: 500;
   line-height: normal;
   text-align: left;
-}
-// th {
-//   display: none;
-// }
-
-td {
-  // display: grid;
-  // grid-template-columns: 15ch auto;
-
-  // &::before {
-  //   content: attr(data-cell);
-  //   font-weight: 700;
-  //   text-transform: capitalize;
-  // }
 }
 
 @include md {
