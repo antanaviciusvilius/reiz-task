@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import PageTitle from '@/components/shared/PageTitle.vue';
-import { useRoute, useRouter } from 'vue-router';
-import { ref, onMounted } from 'vue';
 import getProductById from '@/helpers/getProductById';
+import type { Product } from '@/types/Product';
+import { onMounted, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const product = ref<Product>();
 const route = useRoute();
@@ -10,7 +11,7 @@ const router = useRouter();
 
 const fetchProduct = async () => {
   try {
-    product.value = await getProductById(route.params.id);
+    product.value = await getProductById(Number(route.params.id));
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Failed to fetch products data:', error);
