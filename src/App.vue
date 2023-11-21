@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
+import AppLayout from './components/AppLayout.vue';
 </script>
 
 <template>
-  <div class="wrapper">
+  <AppLayout>
     <RouterView />
-  </div>
+  </AppLayout>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
   .wrapper {
     background-color: var(--sidebar-background-color);
   }
