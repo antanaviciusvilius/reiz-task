@@ -3,7 +3,7 @@ import fetchHelper from './fetchHelper';
 
 const PHONES_ENDPOINT = 'https://dummyjson.com/products';
 
-const getProductById = async (id?: number): Promise<Product> => {
+const getProductById = async (id: number): Promise<Product> => {
   const product = await fetchHelper<Product>(`${PHONES_ENDPOINT}/${id}`, {
     method: 'GET',
     headers: {
