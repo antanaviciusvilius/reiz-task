@@ -100,6 +100,7 @@ const handleClearSort = () => {
   border: 1px solid rgba(0, 0, 0, 0.2);
   color: var(--grey-color);
   padding: 12px;
+  font-family: inherit;
 
   &:hover {
     box-shadow: 1px 1px 2px 0 var(--grey-color);
