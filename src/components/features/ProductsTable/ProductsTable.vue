@@ -55,7 +55,7 @@ const props = defineProps<ProductsTableProps>();
             <CustomCheckbox />
           </DataTableCell>
           <DataTableCell cell-data="Title">
-            <router-link to="/" class="link">{{ product.title }}</router-link>
+            <router-link :to="{ name: 'product', params: { id: product.id }}" class="link">{{ product.title }}</router-link>
           </DataTableCell>
           <DataTableCell v-for="row in rows" :key="row.title" :cell-data="row.title">
             <span class="body-cell">{{ product[row.prop] }}</span>
