@@ -12,6 +12,7 @@ import { ref, watch } from 'vue';
 const products = ref<Product[]>([]);
 const filteredProducts = ref<Product[]>([]);
 const sortedProducts = ref<Product[]>([]);
+const filterSectionToggle = ref(true);
 
 const searchProducts = async (title?: string) => {
   try {
@@ -44,13 +45,24 @@ watch(
   },
   { immediate: true },
 );
+
+const toggleFilterSectionClick = () => {
+  filterSectionToggle.value = !filterSectionToggle.value;
+};
 </script>
 
 <template>
   <main class="products-list-view">
-    <PageTitle>Products Information</PageTitle>
-    <ProductsFilter v-model:title-value="titleFilter" v-model:brand-value="brandFilter" />
-    <ProductsSort class="products-sort" v-model:sort-value="sortBy" />
+    <PageTitle>
+      Products Information
+      <button type="button" @click="toggleFilterSectionClick()">
+        {{ filterSectionToggle ? 'Hide' : 'Show' }} filters/sort
+      </button>
+    </PageTitle>
+    <div class="filter-section" v-if="filterSectionToggle">
+      <ProductsFilter v-model:title-value="titleFilter" v-model:brand-value="brandFilter" />
+      <ProductsSort class="products-sort" v-model:sort-value="sortBy" />
+    </div>
     <ProductsTable :products="sortedProducts" />
   </main>
 </template>
@@ -62,7 +74,9 @@ watch(
   flex: 1;
 }
 
-.products-sort {
-  margin-top: 30px;
+.filter-section {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 </style>
