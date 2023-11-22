@@ -8,6 +8,7 @@ import type { Product } from '@/types/Product';
 export interface Row {
   title: string
   prop: keyof Product
+  formatFn?: (row: Product) => string;
 }
 const rows: Row[] = [
   {
@@ -21,6 +22,7 @@ const rows: Row[] = [
   {
     title: 'Price',
     prop: 'price',
+    formatFn: (row) => `$${row.price}`,
   },
   {
     title: 'Stock',
@@ -29,6 +31,7 @@ const rows: Row[] = [
   {
     title: 'Rating',
     prop: 'rating',
+    formatFn: (row) => `$${row.rating}`,
   },
 ];
 
@@ -55,10 +58,14 @@ const props = defineProps<ProductsTableProps>();
             <CustomCheckbox />
           </DataTableCell>
           <DataTableCell cell-data="Title">
-            <router-link :to="{ name: 'product', params: { id: product.id } }" class="link">{{ product.title }}</router-link>
+            <router-link :to="{ name: 'product', params: { id: product.id } }" class="link">{{
+              product.title
+            }}</router-link>
           </DataTableCell>
           <DataTableCell v-for="row in rows" :key="row.title" :cell-data="row.title">
-            <span class="body-cell">{{ product[row.prop] }}</span>
+            <span class="body-cell">
+              {{ row.formatFn ? row.formatFn(product) : product[row.prop] }}
+            </span>
           </DataTableCell>
         </DataTableRow>
       </tbody>
